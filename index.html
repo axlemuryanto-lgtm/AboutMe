@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - My Blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        nav a {
+            margin-left: 30px;
+            color: #666;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a90e2" width="1200" height="600"/><circle cx="200" cy="150" r="120" fill="%23357abd" opacity="0.5"/><circle cx="900" cy="400" r="180" fill="%23357abd" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero p {
+            font-size: 22px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        .article-meta {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .date {
+            color: #999;
+            font-size: 14px;
+            font-family: 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content {
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .content h2 {
+            font-size: 32px;
+            margin: 40px 0 20px 0;
+            color: #222;
+            font-weight: normal;
+        }
+
+        .content h2:first-child {
+            margin-top: 0;
+        }
+
+        .content p {
+            font-size: 19px;
+            margin-bottom: 25px;
+            color: #444;
+        }
+
+        .drop-cap::first-letter {
+            font-size: 72px;
+            float: left;
+            line-height: 60px;
+            padding-right: 12px;
+            margin-top: 6px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .quote {
+            border-left: 4px solid #4a90e2;
+            padding-left: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            color: #555;
+            font-size: 22px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 40px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+            transition: background 0.3s;
+        }
+
+        .tag:hover {
+            background: #e0e0e0;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .footer-content p {
+            color: #bbb;
+            margin-bottom: 30px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 12px 24px;
+            border: 2px solid white;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .content h2 {
+                font-size: 26px;
+            }
+
+            .content p {
+                font-size: 17px;
+            }
+
+            nav a {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a class="logo">Axle M.D</a>
+            <nav>
+                <a href="http://127.0.0.1:5500/index.html">Home</a>
+                <a href="#" class="gotocontent">About</a>
+                <a href="#" class="gotofooter" style="min-height: auto;">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Axle M.D</h1>
+        <p>Game & Fullstack dev</p>
+    </div>
+
+    <div class="container">
+        <div class="article-meta">
+            <p class="date">October 31, 2025</p>
+        </div>
+
+        <article class="content">
+            <p class="drop-cap">Welcome to my corner of the internet. This is where I share my thoughts, experiences, and the things that make me who I am. I've always believed that our stories are what connect us, and I'm excited to share mine with you.</p>
+
+            <h2>The Beginning</h2>
+            <p>My journey started like many others, full of curiosity and questions. Growing up, I was always the person who wanted to understand not just the "what" but the "why" and "how" behind everything. This curiosity has shaped my path and continues to drive me forward every day.</p>
+
+            <p>I discovered early on that I had a passion for connecting ideas into something new. Whether through writing, conversation, or creative projects, I found myself drawn to the spaces where meaningful exchanges happen.</p>
+
+            
+
+            <h2>What Drives Me</h2>
+            <p>At the core of everything I do is a simple belief: authenticity matters. In a world that often encourages us to wear masks and play roles, I've found that the most rewarding experiences come from being genuinely yourself.</p>
+
+            <div class="quote">
+                "The privilege of a lifetime is to become who you truly are." — Carl Jung
+            </div>
+
+            <p>This philosophy extends to my work, my relationships, and how I approach challenges. I believe in showing up fully, learning constantly, and staying open to the unexpected twists that life brings.</p>
+
+            <h2>What I'm Up To Now</h2>
+            <p>These days, you'll find me exploring new ideas, working on creative projects, and constantly learning. I'm fascinated by how technology, creativity, and human connection intersect in our modern world.</p>
+
+            <p>I spend my time reading voraciously, writing regularly, and engaging with communities that inspire me. Whether it's through social media or in-person conversations, I'm always looking for opportunities to learn from others and share what I've discovered.</p>
+
+            <h2>Beyond the Work</h2>
+            <p>When I'm not working, you might find me with a good book, exploring new places, or enjoying quality time with friends and family. I'm a firm believer in the importance of balance, that our hobbies and downtime are just as important as our professional pursuits.</p>
+
+            <p>Coffee is my fuel, music is my companion, and laughter is my favorite medicine. I try not to take life too seriously, even when I'm serious about my goals.</p>
+
+            <h2>Let's Connect</h2>
+            <p>I created this to introduce myself and not to brag or flex, and to connect with others. If anything I've shared resonates with you, or if you just want to chat, I'd love to hear from you. Drop me a message, leave a comment, or reach out on social media.</p>
+
+            <p>Thank you for taking the time to get to know me. I look forward to getting to know you too.</p>
+
+            <div class="tags">
+                <a class="tag">Personal</a>
+                <a class="tag">About</a>
+                <a class="tag">Life</a>
+                <a class="tag">Journey</a>
+            </div>
+        </article>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Let's Stay Connected</h3>
+            <p>Follow along for more stories, thoughts, and updates</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/axlemechanics/">Instagram</a>
+                <a href="https://discord.com/channels/@beyonddeathie">Discord</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=axlemuryanto@gmail.com&su=Hello&body=Hi%20there!">Email</a>
+            </div>
+        </div>
+    </footer>
+
+<script>
+  const button = document.querySelector('.gotofooter');
+
+  button.addEventListener('click', function (e) {
+    e.preventDefault(); // stop the default jump
+    const aboutSection = document.querySelector('.footer-content');
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const button_2 = document.querySelector('.gotocontent');
+
+  button_2.addEventListener('click', function (e) {
+    e.preventDefault(); // stop the default jump
+    const aboutSection = document.querySelector('.content');
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+
+    </script>
+</body>
+</html>
