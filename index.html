@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - My Blog</title>
+    <title>About Me</title>
     <style>
         * {
             margin: 0;
@@ -253,15 +253,46 @@
                 margin-left: 15px;
                 font-size: 14px;
             }
+            
         }
+        .cute-link {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4e4649;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .cute-link::after {
+    content: 'Hello!';
+    color: rgb(106, 136, 175);
+    position: absolute;
+    right: -75px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+  }
+
+  .cute-link:hover {
+    color: #000000;
+    transform: scale(1.1) rotate(-2deg);
+  }
+
+  .cute-link:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
     </style>
 </head>
 <body>
     <header>
         <div class="header-content">
-            <a class="logo">Axle M.D</a>
+            <a class="cute-link">Axle M.D</a>
             <nav>
-                <a href="http://127.0.0.1:5500/index.html">Home</a>
+                <a href="#" class="gotohome">Home</a>
                 <a href="#" class="gotocontent">About</a>
                 <a href="#" class="gotofooter" style="min-height: auto;">Contact</a>
             </nav>
@@ -303,15 +334,14 @@
             <p>I spend my time reading voraciously, writing regularly, and engaging with communities that inspire me. Whether it's through social media or in-person conversations, I'm always looking for opportunities to learn from others and share what I've discovered.</p>
 
             <h2>Beyond the Work</h2>
-            <p>When I'm not working, you might find me with a good book, exploring new places, or enjoying quality time with friends and family. I'm a firm believer in the importance of balance, that our hobbies and downtime are just as important as our professional pursuits.</p>
+            <p>When I'm not working, you might find me with a good book, a guitar, exploring new places, or enjoying quality time with friends and family. I'm a firm believer in the importance of balance, that our hobbies and downtime are just as important as our professional pursuits.</p>
 
             <p>Coffee is my fuel, music is my companion, and laughter is my favorite medicine. I try not to take life too seriously, even when I'm serious about my goals.</p>
 
-            <h2>Let's Connect</h2>
-            <p>I created this to introduce myself and not to brag or flex, and to connect with others. If anything I've shared resonates with you, or if you just want to chat, I'd love to hear from you. Drop me a message, leave a comment, or reach out on social media.</p>
+            <h2>Titles</h2>
+            <p>I’m proud to hold titles such as Data Scientist, Machine Learning Engineer, and Volunteer Math Helper. Beyond my professional work, I’m also a dedicated Roblox player, specializing in parkour/obby and Arsenal at a professional level. I enjoy blending analytical thinking with creativity, whether it’s in data science or gaming.</p>
 
-            <p>Thank you for taking the time to get to know me. I look forward to getting to know you too.</p>
-
+        
             <div class="tags">
                 <a class="tag">Personal</a>
                 <a class="tag">About</a>
@@ -327,7 +357,7 @@
             <p>Follow along for more stories, thoughts, and updates</p>
             <div class="social-links">
                 <a href="https://www.instagram.com/axlemechanics/">Instagram</a>
-                <a href="https://discord.com/channels/@beyonddeathie">Discord</a>
+                <a href="https://wa.me/6287873940415">Whatsapp</a>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=axlemuryanto@gmail.com&su=Hello&body=Hi%20there!">Email</a>
             </div>
         </div>
@@ -347,6 +377,14 @@
   button_2.addEventListener('click', function (e) {
     e.preventDefault(); // stop the default jump
     const aboutSection = document.querySelector('.content');
+    aboutSection.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  const button_3 = document.querySelector('.gotohome');
+
+  button_3.addEventListener('click', function (e) {
+    e.preventDefault(); // stop the default jump
+    const aboutSection = document.querySelector('.hero');
     aboutSection.scrollIntoView({ behavior: 'smooth' });
   });
 </script>
